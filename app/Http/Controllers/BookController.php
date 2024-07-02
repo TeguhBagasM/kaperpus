@@ -14,14 +14,14 @@ use Illuminate\Http\Request;
     {
         $bookList = Book::all();
 
-        return view('book', compact('bookList'));
+        return view('books.book', compact('bookList'));
     }
 
     public function create(): View
     {
         $categories = Category::all();
 
-        return view('book-add', compact('categories'));
+        return view('books.book-add', compact('categories'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -53,7 +53,7 @@ use Illuminate\Http\Request;
         $book = Book::where('slug', $slug)->firstOrFail();
         $categories = Category::all();
 
-        return view('book-edit', compact('categories', 'book'));
+        return view('books.book-edit', compact('categories', 'book'));
     }
 
     public function update(Request $request, string $slug): RedirectResponse
@@ -89,7 +89,7 @@ use Illuminate\Http\Request;
     {
         $deletedBooks = Book::onlyTrashed()->get();
 
-        return view('book-deleted-list', compact('deletedBooks'));
+        return view('books.book-deleted-list', compact('deletedBooks'));
     }
 
     public function restoreBook(string $slug): RedirectResponse
