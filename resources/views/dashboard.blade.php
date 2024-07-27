@@ -40,26 +40,4 @@
             </div>
         </div>
     </div>
-
-    <div class="mt-5">
-        <h2>Loan Logs</h2>
-        <table class="table table-striped table-bordered">
-            <thead class="bg-dark text-light">
-                <tr>
-                    <th>No</th>
-                    <th>User</th>
-                    <th>Book Title</th>
-                    <th>Loan Date</th>
-                    <th>Return Date</th>
-                    <th>Actual Return Date</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="7" class="text-center">No Data Available</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 @endsection
