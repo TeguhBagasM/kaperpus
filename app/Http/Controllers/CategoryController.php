@@ -11,11 +11,11 @@ class CategoryController extends Controller
     public function index() 
     {
         $categories = Category::all();
-        return view('category', ['categoriesList' => $categories]);
+        return view('categories.category', ['categoriesList' => $categories]);
     }
     public function create() 
     {
-        return view('category-add');
+        return view('categories.category-add');
     }
     
     public function store(Request $request)
@@ -33,7 +33,7 @@ class CategoryController extends Controller
     
     public function edit($slug) {
         $category = Category::where('slug', $slug)->first();
-        return view('category-edit', ['categoryUpdate' => $category]);
+        return view('categories.category-edit', ['categoryUpdate' => $category]);
         
     }
 
@@ -60,7 +60,7 @@ class CategoryController extends Controller
     public function trashedCategories() 
     {
         $deletedCategories = Category::onlyTrashed()->get();
-        return view('category-deleted-list', ['deletedList' => $deletedCategories]);
+        return view('categories.category-deleted-list', ['deletedList' => $deletedCategories]);
     }
 
     public function restore($slug)
