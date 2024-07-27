@@ -49,7 +49,7 @@
                                 @endforeach
                                 @else
                                 <tr class="text-center">
-                                    <td colspan="3">No data available</td>
+                                    <td colspan="5">No data available</td>
                                 </tr>
                                 @endif
                         </tbody>

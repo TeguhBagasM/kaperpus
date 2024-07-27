@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index() 
     {
         $userList = User::where('role_id', 2)->where('status', 'active')->get();
-        return view('user', compact('userList'));
+        return view('users.user', compact('userList'));
     }
 
     public function registeredUser() 
@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         $userDetail = User::where('slug', $slug)->first();
         $loans = Loan::with(['user', 'book'])->where('user_id', $userDetail->id)->get();
-        return view('user-detail', compact('userDetail', 'loans'));
+        return view('users.user-detail', compact('userDetail', 'loans'));
     }
 
     public function approve($slug)
@@ -56,7 +56,7 @@ class UserController extends Controller
     {
         $deletedUsers = User::onlyTrashed()->get();
 
-        return view('user-banned-list', compact('deletedUsers'));
+        return view('users.user-banned-list', compact('deletedUsers'));
     }
 
     public function restoreUser(string $slug): RedirectResponse
