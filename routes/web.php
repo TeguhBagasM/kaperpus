@@ -61,6 +61,5 @@ Route::middleware('auth')->group(function(){
     Route::post('return-book', [LoanController::class, 'returnBook']);
 
 });
-// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
