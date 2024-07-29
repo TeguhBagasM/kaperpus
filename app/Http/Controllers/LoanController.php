@@ -16,7 +16,7 @@ class LoanController extends Controller
     {
         $users = User::where('id', '!=', 1)->where('status', '!=', 'inactive')->get();
         $books = Book::all();
-        return view('loan-book', compact('users', 'books'));
+        return view('loans.loan-book', compact('users', 'books'));
     }
 
     public function store(Request $request) 
@@ -66,14 +66,14 @@ class LoanController extends Controller
     public function loan() 
     {
         $loans = Loan::with(['user', 'book'])->get();
-        return view('loan', compact('loans'));   
+        return view('loans.loan', compact('loans'));   
     }
 
     public function return()  
     {
         $users = User::where('id', '!=', 1)->where('status', '!=', 'inactive')->get();
         $books = Book::all();
-        return view('return-book', compact('users', 'books'));
+        return view('loans.return-book', compact('users', 'books'));
     }
     
     public function returnBook(Request $request) 
